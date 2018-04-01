@@ -1,0 +1,50 @@
+services:
+    AppBundle\Lexer\LexerInterface: '@app.lexer.hl7_adt.carriage_return'
+
+    app.lexer.hl7_adt.carriage_return:
+        class: AppBundle\Lexer\HL7ADTLexer
+        arguments:
+            - 'crlf'
+            - '@app.lexer.hl7_adt.pipe'
+
+    app.lexer.hl7_adt.pipe:
+        class: AppBundle\Lexer\HL7ADTLexer
+        arguments:
+            - '|'
+            - '@app.lexer.hl7_adt.circumflex'
+
+    app.lexer.hl7_adt.circumflex:
+        class: AppBundle\Lexer\HL7ADTLexer
+        arguments:
+            - '^'
+            - '@app.lexer.hl7_adt.and'
+
+    app.lexer.hl7_adt.and:
+        class: AppBundle\Lexer\HL7ADTLexer
+        arguments:
+            - '&'
+
+    AppBundle\Factory\DoctorFactoryInterface: '@app.factory.hl7_adt.doctor'
+    AppBundle\Factory\PatientFactoryInterface: '@app.factory.hl7_adt.patient'
+
+    app.factory.hl7_adt.doctor:
+        class: AppBundle\Factory\HL7ADTMessageDoctorFactory
+        arguments:
+            - '@app.repository.doctor'
+
+    app.factory.hl7_adt.patient:
+        class: AppBundle\Factory\HL7ADTMessagePatientFactory
+        arguments:
+            - '@app.repository.patient'
+
+    app.repository.doctor:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
+        arguments:
+            - 'AppBundle\Entity\Doctor'
+
+    app.repository.patient:
+            class: Doctrine\ORM\EntityRepository
+            factory: ['@doctrine.orm.default_entity_manager', 'getRepository']
+            arguments:
+                - 'AppBundle\Entity\Patient'

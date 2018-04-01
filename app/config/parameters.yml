@@ -2,7 +2,7 @@
 parameters:
     database_host: 127.0.0.1
     database_port: null
-    database_name: symfony
+    database_name: apicea
     database_user: root
     database_password: null
     mailer_transport: smtp
@@ -10,3 +10,5 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 7e4148d5a7a82251a534bb90d5082161df238c73
+
+    hl7.adt.message_folder: C:\xampp\htdocs\test-symfony\web\files

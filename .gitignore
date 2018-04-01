@@ -6,6 +6,7 @@
 /vendor/
 /app/cache/*
 /app/logs/*
+/app/config/parameters.yml
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 /web/bundles/

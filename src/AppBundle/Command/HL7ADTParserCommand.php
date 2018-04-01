@@ -28,8 +28,8 @@ class HL7ADTParserCommand extends ContainerAwareCommand
             ->setAliases([
                 'h7a:p'
             ])
-            ->addOption(self::SAVE_OPTION, null, InputOption::VALUE_NONE, 'Should the output be saved in database or not.')
-            ->addOption(self::DUMP_OPTION, null, InputOption::VALUE_NONE, 'Should the output be dumped or not.')
+            ->addOption(self::SAVE_OPTION, null, InputOption::VALUE_NONE, 'Enable persist database.')
+            ->addOption(self::DUMP_OPTION, null, InputOption::VALUE_NONE, 'Dump the messages.')
         ;
     }
 

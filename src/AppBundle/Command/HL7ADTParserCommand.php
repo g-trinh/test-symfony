@@ -6,7 +6,6 @@ use AppBundle\Exception\Factory\FactoryMessageNotSupportedException;
 use AppBundle\Factory\DoctorFactoryInterface;
 use AppBundle\Factory\PatientFactoryInterface;
 use AppBundle\Lexer\LexerInterface;
-use Doctrine\ORM\OptimisticLockException;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
